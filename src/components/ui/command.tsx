@@ -1,19 +1,19 @@
-import * as React from "react"
 import { Command as CommandPrimitive } from "cmdk"
+import * as React from "react"
 
-import { cn } from "@/lib/utils"
+import { CheckIcon, SearchIcon } from "lucide-react"
+import { cn } from "./../../lib/utils"
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog"
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+} from "./dialog"
 import {
-  InputGroup,
-  InputGroupAddon,
-} from "@/components/ui/input-group"
-import { SearchIcon, CheckIcon } from "lucide-react"
+    InputGroup,
+    InputGroupAddon,
+} from "./input-group"
 
 function Command({
   className,
@@ -181,13 +181,8 @@ function CommandShortcut({
 }
 
 export {
-  Command,
-  CommandDialog,
-  CommandInput,
-  CommandList,
-  CommandEmpty,
-  CommandGroup,
-  CommandItem,
-  CommandShortcut,
-  CommandSeparator,
+    Command,
+    CommandDialog, CommandEmpty,
+    CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator, CommandShortcut
 }
+
