@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
 import {
   ArrowRight,
   Droplets,
@@ -25,6 +24,8 @@ import logo from "./../assets/inamigos-logo.png";
 import lifeImg from "./../assets/mission-life.jpeg";
 import vikasImg from "./../assets/project-vikas.jpeg";
 import waterImg from "./../assets/save-water.jpeg";
+import { Toaster } from "@/components/ui/sonner";
+import { toast } from "sonner";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -80,7 +81,6 @@ const stats = [
 ];
 
 const Index = () => {
-  const { toast } = useToast();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -106,8 +106,7 @@ const Index = () => {
     e.preventDefault();
     setSubmitting(true);
     setTimeout(() => {
-      toast({
-        title: "Thank you for joining! 🎉",
+      toast.success("Thank you for joining! 🎉", {
         description: `We've received your interest in ${form.interest.toLowerCase()}. Our team will reach out at ${form.email} soon.`,
       });
       setForm({ name: "", email: "", phone: "", interest: "Volunteer", message: "" });
@@ -838,6 +837,8 @@ const Index = () => {
           </div>
         </div>
       </footer>
+      {/* Toasting */}
+      {/* <Toaster/> */}
     </div>
   );
 };

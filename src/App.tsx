@@ -1,6 +1,6 @@
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { Toaster } from "@/components/ui/sonner.tsx";
+import { Toaster } from "@/components/ui/sonner";
+
 import Index from "@/pages/Index.tsx";
 import {
   QueryClient,
@@ -19,7 +19,6 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
-      <Sonner />
       <BrowserRouter>
         <Routes>
           <Route
