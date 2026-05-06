@@ -19,13 +19,12 @@ import {
   X,
 } from "lucide-react";
 import { useEffect, useState, } from "react";
+import { toast } from "sonner";
 import heroImg from "./../assets/hero-community.jpeg";
 import logo from "./../assets/inamigos-logo.png";
 import lifeImg from "./../assets/mission-life.jpeg";
 import vikasImg from "./../assets/project-vikas.jpeg";
 import waterImg from "./../assets/save-water.jpeg";
-import { Toaster } from "@/components/ui/sonner";
-import { toast } from "sonner";
 
 const navLinks = [
   { href: "#about", label: "About" },
