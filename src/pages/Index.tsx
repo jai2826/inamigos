@@ -1,13 +1,9 @@
-import { Button } from "./../components/ui/button";
-import { Input } from "./../components/ui/input";
-import { Label } from "./../components/ui/label";
-import { Textarea } from "./../components/ui/textarea";
 import {
   ArrowRight,
   Droplets,
   Globe2,
   GraduationCap,
-  HeartHandshake,
+  HandHeart,
   Leaf,
   Mail,
   MapPin,
@@ -18,13 +14,25 @@ import {
   Users,
   X,
 } from "lucide-react";
-import { useEffect, useState, } from "react";
+import { FaHandsHoldingCircle } from "react-icons/fa6";
+import { useEffect, useState } from "react";
+import {
+  FaFacebookF,
+  FaGooglePlusG,
+  FaInstagram,
+  FaPinterest,
+  FaTwitter,
+} from "react-icons/fa";
 import { toast } from "sonner";
 import heroImg from "./../assets/hero-community.jpeg";
 import logo from "./../assets/inamigos-logo.png";
 import lifeImg from "./../assets/mission-life.jpeg";
 import vikasImg from "./../assets/project-vikas.jpeg";
 import waterImg from "./../assets/save-water.jpeg";
+import { Button } from "./../components/ui/button";
+import { Input } from "./../components/ui/input";
+import { Label } from "./../components/ui/label";
+import { Textarea } from "./../components/ui/textarea";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -61,21 +69,21 @@ const projects = [
 ];
 
 const stats = [
-  { value: "24", label: "Countries reached", icon: Globe2 },
+  { value: "28", label: "STATES", icon: Globe2 },
   {
-    value: "2,600+",
+    value: "200+",
     label: "Volunteers & members",
     icon: Users,
   },
   {
-    value: "5+",
-    label: "Years of impact",
-    icon: HeartHandshake,
+    value: "6",
+    label: "Our Causes",
+    icon: HandHeart,
   },
   {
-    value: "80G & 12A",
-    label: "Certified non-profit",
-    icon: ShieldCheck,
+    value: "50000",
+    label: "BENEFICIARIES",
+    icon: FaHandsHoldingCircle,
   },
 ];
 
@@ -91,7 +99,6 @@ const Index = () => {
     message: "",
   });
 
-
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
     onScroll();
@@ -100,20 +107,25 @@ const Index = () => {
       window.removeEventListener("scroll", onScroll);
   }, []);
 
-
-  const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
+  const handleSubmit = (
+    e: React.SyntheticEvent<HTMLFormElement>,
+  ) => {
     e.preventDefault();
     setSubmitting(true);
     setTimeout(() => {
       toast.success("Thank you for joining! 🎉", {
         description: `We've received your interest in ${form.interest.toLowerCase()}. Our team will reach out at ${form.email} soon.`,
       });
-      setForm({ name: "", email: "", phone: "", interest: "Volunteer", message: "" });
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        interest: "Volunteer",
+        message: "",
+      });
       setSubmitting(false);
     }, 600);
   };
-
-
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -312,7 +324,7 @@ const Index = () => {
                     </div>
                     <div>
                       <p className="text-2xl font-extrabold text-foreground">
-                        10K+
+                        50K+
                       </p>
                       <p className="text-xs text-muted-foreground">
                         Lives touched
@@ -348,14 +360,14 @@ const Index = () => {
                 societal issues through a network of
                 dedicated professionals, students, and
                 volunteers — uniting minds for change across
-                24 countries.
+                28 states.
               </p>
               <ul className="mt-8 grid gap-4 sm:grid-cols-2">
                 {[
                   "Section 8 registered non-profit",
                   "80G & 12A tax-exemption certified",
                   "CSR-1 registered with MCA",
-                  "Operates across 24 countries",
+                  "Operates across 28 states",
                 ].map((item) => (
                   <li
                     key={item}
@@ -578,7 +590,7 @@ const Index = () => {
                       Call
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      +91 (0) 000 000 0000
+                      +91 626 730 9902
                     </p>
                   </div>
                 </li>
@@ -730,7 +742,9 @@ const Index = () => {
                     required
                     rows={5}
                     value={form.message}
-                    onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
+                    onChange={(
+                      e: React.ChangeEvent<HTMLTextAreaElement>,
+                    ) =>
                       setForm((f) => ({
                         ...f,
                         message: e.target.value,
@@ -798,6 +812,39 @@ const Index = () => {
 
             <div>
               <p className="text-sm font-semibold text-foreground">
+                Follow us
+              </p>
+              <ul className="flex items-center space-x-3   text-accent-foreground">
+                <a
+                  target="_blank"
+                  href="https://www.facebook.com/inamigos.inamigos">
+                  <FaFacebookF className="h-6 w-6" />
+                </a>
+                <a
+                  target="_blank"
+                  href="https://twitter.com/">
+                  <FaTwitter className="h-7 w-7" />
+                </a>
+                <a
+                  target="_blank"
+                  href="https://in.pinterest.com/inamigos/">
+                  <FaPinterest className="h-7 w-7" />
+                </a>
+                <a
+                  target="_blank"
+                  href="https://plus.google.com/">
+                  <FaGooglePlusG className="h-8 w-8" />
+                </a>
+                <a
+                  target="_blank"
+                  href="https://www.instagram.com/inamigos/">
+                  <FaInstagram className="h-7 w-7" />
+                </a>
+              </ul>
+            </div>
+
+            <div>
+              <p className="text-sm font-semibold text-foreground">
                 Explore
               </p>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
@@ -818,8 +865,12 @@ const Index = () => {
                 Contact
               </p>
               <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                <li>support@inamigosfoundation.org.in</li>
-                <li>Bilaspur, Chhattisgarh, India</li>
+                <li>Ward No. 5, Gram Post,</li>
+                <li>Sipat Ujwal Nagar,</li>
+                <li>Bilaspur. Chhattisgarh</li>
+                <li>Pin-Code: 495555</li>
+                <li>inamigosfoundation@gmail.com</li>
+                <li>+91 626 730 9902</li>
               </ul>
             </div>
           </div>
