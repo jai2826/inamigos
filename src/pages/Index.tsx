@@ -783,7 +783,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t border-border bg-surface-soft">
         <div className="container py-12">
-          <div className="grid gap-10 md:grid-cols-3">
+          <div className="grid gap-10 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             <div>
               <div className="flex items-center gap-3">
                 <img
