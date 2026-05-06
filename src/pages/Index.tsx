@@ -80,6 +80,7 @@ const stats = [
 ];
 
 const Index = () => {
+  console.log(process.version)
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [submitting, setSubmitting] = useState(false);
